@@ -31,7 +31,7 @@ export default function Home() {
       <form>
         <FormControl>
           <FormLabel>Usuário</FormLabel>
-          <Input type="text" />
+          <Input type="text" placeholder="Digite seu usuário" />
         </FormControl>
         <FormControl marginTop="20px">
           <FormLabel>Senha</FormLabel>
@@ -41,6 +41,7 @@ export default function Home() {
               type={viewPassword ? "text" : "password"}
             />
             <InputRightElement
+              // eslint-disable-next-line react/no-children-prop
               children={
                 viewPassword ? (
                   <ViewOffIcon
