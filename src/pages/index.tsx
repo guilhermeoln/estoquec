@@ -38,10 +38,10 @@ export default function Home() {
           <Text
             position="absolute"
             color="white"
-            maxW="350px"
+            maxW="300px"
             marginTop="50%"
             marginLeft="50px"
-            fontSize="35px"
+            fontSize="30px"
           >
             Bem-vindo ao nosso software de gestão de vendas, a solução ideal
             para ajudar a impulsionar o seu negócio!
