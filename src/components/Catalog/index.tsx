@@ -12,11 +12,20 @@ import {
 import { SearchIcon, AddIcon } from "@chakra-ui/icons";
 import TableCatalog from "./TableCatalog";
 import { useProducts } from "@/contexts/hooks/useProducts";
+import { useState } from "react";
 
 export default function Catalog() {
   const [isLargerThan900] = useMediaQuery("(min-width: 900px)");
 
-  const { products, addProducts } = useProducts();
+  const [search, setSearch] = useState("");
+
+  const {
+    products,
+    addProducts,
+    setProducts,
+    refetchProducts,
+    filterProducts,
+  } = useProducts();
 
   return (
     <Flex
@@ -50,6 +59,13 @@ export default function Catalog() {
             height="50px"
             bg="white"
             borderRadius="40px"
+            value={search}
+            onChange={(event) => {
+              setSearch(event.target.value.toUpperCase());
+            }}
+            onKeyUp={() => {
+              search === "" ? refetchProducts() : filterProducts(search);
+            }}
           />
           <InputRightElement height="100%">
             <SearchIcon color="green.500" />

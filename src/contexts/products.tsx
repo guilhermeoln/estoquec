@@ -1,3 +1,4 @@
+import productsInitial from "@/mock/products";
 import { IProduct } from "@/types/IProduct";
 import React, { createContext } from "react";
 
@@ -15,23 +16,7 @@ type Props = {
 };
 
 export const ProductsProvider = ({ children }: Props) => {
-  const [products, setProducts] = useState<IProduct[] | []>([
-    {
-      description: "Iphone 12",
-      category: "Pro Max",
-      price: 2000,
-    },
-    {
-      description: "Iphone 14",
-      category: "Pro",
-      price: 5200.5,
-    },
-    {
-      description: "Iphone XS",
-      category: "MAX",
-      price: 1800.3,
-    },
-  ]);
+  const [products, setProducts] = useState<IProduct[] | []>(productsInitial);
 
   return (
     <ProductsContext.Provider value={{ products, setProducts }}>
