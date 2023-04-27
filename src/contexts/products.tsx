@@ -21,6 +21,16 @@ export const ProductsProvider = ({ children }: Props) => {
       category: "Pro Max",
       price: 2000,
     },
+    {
+      description: "Iphone 14",
+      category: "Pro",
+      price: 5200.5,
+    },
+    {
+      description: "Iphone XS",
+      category: "MAX",
+      price: 1800.3,
+    },
   ]);
 
   return (

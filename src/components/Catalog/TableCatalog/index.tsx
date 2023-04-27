@@ -11,7 +11,11 @@ import {
   TableContainer,
 } from "@chakra-ui/react";
 
+import { useProducts } from "@/contexts/hooks/useProducts";
+
 export default function TableCatalog() {
+  const { products, addProducts } = useProducts();
+
   return (
     <TableContainer width="100%" bg="white" borderRadius="8px">
       <Table variant="simple">
@@ -20,15 +24,25 @@ export default function TableCatalog() {
           <Tr>
             <Th>Descrição</Th>
             <Th>Categoria</Th>
+            <Th>Preço</Th>
             <Th isNumeric>Ações</Th>
           </Tr>
         </Thead>
         <Tbody>
-          <Tr>
-            <Td textTransform="uppercase">Iphone 12 PRO</Td>
-            <Td textTransform="uppercase">Celular</Td>
-            <Td isNumeric></Td>
-          </Tr>
+          {products.map((product, index) => (
+            <Tr key={index}>
+              <Td textTransform="uppercase">{product.description}</Td>
+              <Td textTransform="uppercase">{product.category}</Td>
+              <Td>
+                {product.price.toLocaleString("pt-BR", {
+                  minimumFractionDigits: 2,
+                  style: "currency",
+                  currency: "BRL",
+                })}
+              </Td>
+              <Td isNumeric></Td>
+            </Tr>
+          ))}
         </Tbody>
       </Table>
     </TableContainer>
