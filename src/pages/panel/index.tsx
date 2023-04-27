@@ -10,6 +10,7 @@ import Image from "next/image";
 import { useState } from "react";
 
 import { ArrowRightIcon, ArrowLeftIcon } from "@chakra-ui/icons";
+import Sales from "@/components/Sales";
 
 export default function Panel() {
   const [showCatalog, setShowCatalog] = useState(true);
@@ -216,6 +217,7 @@ export default function Panel() {
         bgColor="#94B665"
       >
         {showCatalog && <Catalog />}
+        {showSales && <Sales />}
       </Flex>
     </Flex>
   );
