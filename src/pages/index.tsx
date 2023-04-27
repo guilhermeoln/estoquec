@@ -17,6 +17,7 @@ import Image from "next/image";
 
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Home() {
   const [viewPassword, setViewPassword] = useState(false);
@@ -116,18 +117,20 @@ export default function Home() {
             Esqueci minha senha
           </Text>
         </Box>
-        <Button
-          width="200px"
-          height="50px"
-          marginTop="30px"
-          bgColor="black"
-          color="white"
-          border="2px solid #FFFFFF"
-          backgroundColor="transparent"
-          borderRadius="0px"
-        >
-          Entrar
-        </Button>
+        <Link href="/panel">
+          <Button
+            width="200px"
+            height="50px"
+            marginTop="30px"
+            bgColor="black"
+            color="white"
+            border="2px solid #FFFFFF"
+            backgroundColor="transparent"
+            borderRadius="0px"
+          >
+            Entrar
+          </Button>
+        </Link>
       </form>
     </Flex>
   );
