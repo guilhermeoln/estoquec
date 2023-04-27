@@ -23,7 +23,7 @@ export default function Panel() {
       {isLargerThan900 ? (
         <Flex
           width="200px"
-          bgColor="#799D47"
+          bgColor="#8EC045"
           flexDirection="column"
           alignItems="center"
           py="30px"
@@ -214,7 +214,7 @@ export default function Panel() {
       <Flex
         width={isLargerThan900 ? "calc(100% - 200px)" : "100%"}
         height="100% "
-        bgColor="#94B665"
+        bgColor="white"
       >
         {showCatalog && <Catalog />}
         {showSales && <Sales />}

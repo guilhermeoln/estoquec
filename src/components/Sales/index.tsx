@@ -106,13 +106,13 @@ export default function Sales() {
           justifyContent="center"
           alignItems="center"
         >
-          <Text color="#335E29" fontSize="64px">
+          <Text color="#8EC045" fontSize="64px">
             0
           </Text>
-          <Text color="#FFFFFF" fontSize="40px">
+          <Text color="#000000" fontSize="40px">
             VENDAS
           </Text>
-          <Text color="#000000" fontSize="16px">
+          <Text color="#000000" fontSize="14px">
             VENDAS REALIZADAS
           </Text>
         </Flex>

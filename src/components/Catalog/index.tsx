@@ -35,13 +35,13 @@ export default function Catalog() {
       alignItems="center"
       py="50px"
     >
-      <Text color="#335E29" fontSize="64px">
+      <Text color="#8EC045" fontSize="64px">
         {products.length}
       </Text>
-      <Text color="#FFFFFF" fontSize="40px">
+      <Text color="#000000" fontSize="40px">
         PRODUTOS
       </Text>
-      <Text color="#000000" fontSize="16px">
+      <Text color="#000000" fontSize="14px">
         ATIVOS CADASTRADOS
       </Text>
       <Box
@@ -74,7 +74,7 @@ export default function Catalog() {
         <Button
           width="250px"
           height="50px"
-          bg="#335E29"
+          bg="#8EC045"
           borderRadius="40px"
           color="white"
           rightIcon={<AddIcon />}
