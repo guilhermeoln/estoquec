@@ -98,10 +98,11 @@ export default function Panel() {
       ) : (
         <Flex
           bg="#799D47"
-          width={showMenu ? "200px" : "10px"}
+          width={showMenu ? "200px" : "20px"}
+          position="absolute"
           minH="100vh"
           zIndex="999"
-          transition="0.2s ease all "
+          transition="0.1s ease all "
         >
           {showMenu && (
             <Flex
@@ -186,10 +187,11 @@ export default function Panel() {
               fontSize="20px"
               padding="5px"
               position="absolute"
-              marginTop="100%"
-              marginLeft={showMenu ? "100px" : "0px"}
+              marginTop="50px"
+              marginLeft={showMenu ? "190px" : "10px"}
               cursor="pointer"
               onClick={() => setShowMenu(false)}
+              transition="0.2s ease all"
             />
           ) : (
             <ArrowRightIcon
@@ -198,10 +200,11 @@ export default function Panel() {
               fontSize="20px"
               padding="5px"
               position="absolute"
-              marginTop="100%"
-              marginLeft={showMenu ? "100px" : "0px"}
+              marginTop="50px"
+              marginLeft={showMenu ? "100px" : "10px"}
               cursor="pointer"
               onClick={() => setShowMenu(true)}
+              transition="0.2s ease all"
             />
           )}
         </Flex>
