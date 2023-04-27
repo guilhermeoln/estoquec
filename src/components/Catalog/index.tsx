@@ -11,9 +11,12 @@ import {
 
 import { SearchIcon, AddIcon } from "@chakra-ui/icons";
 import TableCatalog from "./TableCatalog";
+import { useProducts } from "@/contexts/hooks/useProducts";
 
 export default function Catalog() {
   const [isLargerThan900] = useMediaQuery("(min-width: 900px)");
+
+  const { products, addProducts } = useProducts();
 
   return (
     <Flex
@@ -24,7 +27,7 @@ export default function Catalog() {
       py="50px"
     >
       <Text color="#335E29" fontSize="64px">
-        1
+        {products.length}
       </Text>
       <Text color="#FFFFFF" fontSize="40px">
         PRODUTOS
