@@ -19,7 +19,7 @@ export default function Panel() {
 
   const [isLargerThan900] = useMediaQuery("(min-width: 900px)");
   return (
-    <Flex width="100%" minHeight="100vh">
+    <Flex width="100%" minHeight="100vh" position="fixed">
       {isLargerThan900 ? (
         <Flex
           width="200px"
@@ -52,14 +52,14 @@ export default function Panel() {
           >
             <Image
               src="/assets/logoCatalog.png"
-              width="40"
-              height="40"
+              width="30"
+              height="30"
               alt="catalog"
             />
             <Text
               color="white"
               marginTop="8px"
-              fontSize="25px"
+              fontSize="20px"
               fontWeight="400"
             >
               Catálogo
@@ -82,14 +82,14 @@ export default function Panel() {
           >
             <Image
               src="/assets/logoSales.png"
-              width="40"
-              height="40"
+              width="30"
+              height="30"
               alt="vendas"
             />
             <Text
               color="white"
               marginTop="8px"
-              fontSize="25px"
+              fontSize="20px"
               fontWeight="400"
             >
               Vendas
