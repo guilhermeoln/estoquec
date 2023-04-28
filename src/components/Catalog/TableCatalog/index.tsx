@@ -40,7 +40,9 @@ export default function TableCatalog() {
                   currency: "BRL",
                 })}
               </Td>
-              <Td isNumeric></Td>
+              <Td isNumeric fontSize="14px" color="#8EC045" cursor="pointer">
+                Ver mais
+              </Td>
             </Tr>
           ))}
         </Tbody>
