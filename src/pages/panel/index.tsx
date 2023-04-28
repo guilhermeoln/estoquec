@@ -19,7 +19,7 @@ export default function Panel() {
 
   const [isLargerThan900] = useMediaQuery("(min-width: 900px)");
   return (
-    <Flex width="100%" minHeight="100vh" position="fixed">
+    <Flex width="100%" height="100vh" position="fixed">
       {isLargerThan900 ? (
         <Flex
           width="200px"
