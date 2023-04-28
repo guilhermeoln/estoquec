@@ -1,6 +1,6 @@
 import { IProduct } from "./IProduct";
 
-export default interface ISales {
+export default interface ISale {
   id: number;
   buyerData: {
     name: string;
@@ -18,4 +18,5 @@ export default interface ISales {
   productData: IProduct[];
   paymentMethods: "pix" | "crédito" | "débito";
   amount: number;
+  purchaseDate: Date | number;
 }

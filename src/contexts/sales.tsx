@@ -1,12 +1,12 @@
 import { salesInitial } from "@/mock/sales";
-import ISales from "@/types/ISales";
+import ISale from "@/types/ISale";
 import React, { createContext } from "react";
 
 import { useState } from "react";
 
 interface IPropsContext {
-  sales: ISales[];
-  setSales: React.Dispatch<React.SetStateAction<ISales[] | []>>;
+  sales: ISale[];
+  setSales: React.Dispatch<React.SetStateAction<ISale[] | []>>;
 }
 
 export const SalesContext = createContext<IPropsContext>(null!);
@@ -15,8 +15,8 @@ type Props = {
   children: React.ReactNode;
 };
 
-export const ProductsProvider = ({ children }: Props) => {
-  const [sales, setSales] = useState<ISales[] | []>(salesInitial);
+export const SalesProvider = ({ children }: Props) => {
+  const [sales, setSales] = useState<ISale[] | []>(salesInitial);
 
   return (
     <SalesContext.Provider value={{ sales, setSales }}>
