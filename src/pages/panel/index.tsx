@@ -19,7 +19,7 @@ export default function Panel() {
 
   const [isLargerThan900] = useMediaQuery("(min-width: 900px)");
   return (
-    <Flex width="100%" height="100vh" position="fixed">
+    <Flex width="100%" minH="100vh">
       {isLargerThan900 ? (
         <Flex
           width="200px"
@@ -27,6 +27,8 @@ export default function Panel() {
           flexDirection="column"
           alignItems="center"
           py="30px"
+          position="fixed"
+          height="100vh"
         >
           <Image
             src="/assets/logoLogin.png"
@@ -100,10 +102,10 @@ export default function Panel() {
         <Flex
           bg="#799D47"
           width={showMenu ? "200px" : "20px"}
-          position="absolute"
-          minH="100vh"
+          position="fixed"
+          height="100vh"
           zIndex="999"
-          transition="0.1s ease all "
+          transition="0.1s ease all"
         >
           {showMenu && (
             <Flex
@@ -212,8 +214,9 @@ export default function Panel() {
       )}
 
       <Flex
-        width={isLargerThan900 ? "calc(100% - 200px)" : "100%"}
-        height="100% "
+        width={isLargerThan900 ? "calc(100% + 200px)" : "100%"}
+        marginLeft={isLargerThan900 ? "200px" : "0px"}
+        height="100%"
         bgColor="white"
       >
         {showCatalog && <Catalog />}
