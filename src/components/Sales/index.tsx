@@ -1,8 +1,43 @@
+import { useSales } from "@/contexts/hooks/useSales";
+import { SalesContext } from "@/contexts/sales";
 import { Flex, Box, Text, useMediaQuery } from "@chakra-ui/react";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export default function Sales() {
+  const [salesToday, setSalesToday] = useState(0);
+  const [salesMonth, setSalesMonth] = useState(0);
+  const [salesWeek, setSalesWeek] = useState(0);
+
   const [isLargerThan900] = useMediaQuery("(min-width: 900px)");
+
+  const { sales } = useSales();
+
+  const today = new Date();
+
+  const dayToday = today.getDate();
+
+  useEffect(() => {
+    function calculateTodaySales() {
+      var valueSalesToday = 0;
+      var valuesSalesMonth = 0;
+      var valuesSalesWeek = 0;
+
+      sales.forEach((sale) => {
+        if (sale.purchaseDate === dayToday) {
+          valueSalesToday += sale.amount;
+        }
+        valuesSalesMonth += sale.amount;
+        valuesSalesWeek += sale.amount;
+      });
+
+      setSalesToday(valueSalesToday);
+      setSalesWeek(valuesSalesWeek);
+      setSalesMonth(valuesSalesMonth);
+    }
+
+    calculateTodaySales();
+  }, [sales, salesToday, salesMonth, salesWeek]);
 
   return (
     <Flex
@@ -30,9 +65,11 @@ export default function Sales() {
           boxShadow="0px 4px 10px rgba(0, 0, 0, 0.25)"
           borderRadius="47px"
         >
-          <Text fontSize="40px" color="#13250F">
-            <span style={{ color: "#8EC045", fontSize: "24px" }}>R$</span>
-            00,00
+          <Text fontSize="30px" color="#13250F">
+            <span style={{ color: "#8EC045", fontSize: "18px" }}>R$</span>
+            {salesToday.toLocaleString("pt-BR", {
+              minimumFractionDigits: 2,
+            })}
           </Text>
           <Text>Vendidos hoje</Text>
         </Flex>
@@ -47,9 +84,11 @@ export default function Sales() {
           borderRadius="47px"
           marginTop={isLargerThan900 ? "0px" : "20px"}
         >
-          <Text fontSize="40px" color="#13250F">
-            <span style={{ color: "#8EC045", fontSize: "24px" }}>R$</span>
-            00,00
+          <Text fontSize="30px" color="#13250F">
+            <span style={{ color: "#8EC045", fontSize: "18px" }}>R$</span>
+            {salesWeek.toLocaleString("pt-BR", {
+              minimumFractionDigits: 2,
+            })}
           </Text>
           <Text>Vendas semanais</Text>
         </Flex>
@@ -64,9 +103,11 @@ export default function Sales() {
           borderRadius="47px"
           marginTop={isLargerThan900 ? "0px" : "20px"}
         >
-          <Text fontSize="40px" color="#13250F">
-            <span style={{ color: "#8EC045", fontSize: "24px" }}>R$</span>
-            00,00
+          <Text fontSize="30px" color="#13250F">
+            <span style={{ color: "#8EC045", fontSize: "18px" }}>R$</span>
+            {salesMonth.toLocaleString("pt-BR", {
+              minimumFractionDigits: 2,
+            })}
           </Text>
           <Text>Vendas mensais</Text>
         </Flex>
@@ -107,7 +148,7 @@ export default function Sales() {
           alignItems="center"
         >
           <Text color="#8EC045" fontSize="64px">
-            0
+            {sales.length}
           </Text>
           <Text color="#000000" fontSize="40px">
             VENDAS
