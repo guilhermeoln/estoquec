@@ -23,6 +23,7 @@ import * as yup from "yup";
 import { IProduct } from "@/types/IProduct";
 
 import { useProducts } from "@/contexts/hooks/useProducts";
+import { useState } from "react";
 
 type Props = {
   isOpen: boolean;
@@ -53,18 +54,23 @@ const schemaValidation = yup
 export default function ModalAddProduct({ isOpen, onOpen, onClose }: Props) {
   const [isLargerThan800] = useMediaQuery("(min-width: 800px)");
 
+  const [messageSucess, setMessageSucess] = useState("");
+
   const { addProducts } = useProducts();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<FormData>({
     resolver: yupResolver(schemaValidation),
   });
 
   const insertProduct = (productData: FormData) => {
     addProducts(productData);
+    setMessageSucess("Produto adicionado com sucesso!");
+    reset();
   };
 
   console.log(errors);
@@ -79,6 +85,23 @@ export default function ModalAddProduct({ isOpen, onOpen, onClose }: Props) {
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody py="30px">
+            {messageSucess && (
+              <Flex
+                width="100%"
+                padding="8px"
+                justifyContent="space-between"
+                alignItems="center"
+                bg="#8EC045"
+                color="white"
+                borderRadius="5px"
+                marginBottom="20px"
+              >
+                <Text>{messageSucess}</Text>
+                <Text onClick={() => setMessageSucess("")} cursor="pointer">
+                  X
+                </Text>
+              </Flex>
+            )}
             <form onSubmit={handleSubmit(insertProduct)}>
               <FormControl isInvalid={!!errors.description}>
                 <FormLabel>Descrição *</FormLabel>
