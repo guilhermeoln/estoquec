@@ -19,7 +19,8 @@ export const salesInitial: ISales[] = [
       {
         imei: "111233345656",
         description: "IPHONE 12",
-        category: "PRO",
+        model: "PRO MAX",
+        category: "IPHONE",
         price: 2000,
         quantifyBuy: 1,
       },
@@ -46,7 +47,8 @@ export const salesInitial: ISales[] = [
       {
         imei: "111233345656",
         description: "IPHONE 14",
-        category: "PRO MAX",
+        model: "PRO MAX",
+        category: "IPHONE",
         price: 5000,
         quantifyBuy: 1,
       },
@@ -73,7 +75,8 @@ export const salesInitial: ISales[] = [
       {
         imei: "111233345656",
         description: "IPHONE 12",
-        category: "PRO",
+        model: "PRO",
+        category: "IPHONE",
         price: 2000,
         quantifyBuy: 1,
       },
@@ -100,7 +103,8 @@ export const salesInitial: ISales[] = [
       {
         imei: "111233345656",
         description: "IPHONE 13",
-        category: "PRO",
+        model: "PRO MAX",
+        category: "IPHONE",
         price: 3200.3,
         quantifyBuy: 1,
       },
